@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" width="260" height="64" fill="none">
+  <defs>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#044B29"/>
+      <stop offset="100%" stop-color="#022E19"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8FCE00"/>
+      <stop offset="100%" stop-color="#72A800"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5252"/>
+      <stop offset="100%" stop-color="#D93025"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- ICON BADGE -->
+  <g transform="translate(6, 6)">
+    <!-- Badge Background -->
+    <rect width="52" height="52" rx="14" fill="url(#badgeGrad)" filter="url(#dropShadow)" />
+    <rect x="1" y="1" width="50" height="50" rx="13" stroke="#8FCE00" stroke-width="1.5" stroke-opacity="0.4" fill="none"/>
+    
+    <!-- 24/7 Clock Arc / Speed Ring -->
+    <circle cx="26" cy="26" r="18" stroke="#8FCE00" stroke-width="2.5" stroke-dasharray="80 30" stroke-linecap="round" fill="none" opacity="0.9"/>
+    
+    <!-- Shopping Cart / Delivery Symbol -->
+    <path d="M17 21h3l2.5 10h11l2-7h-13" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="23.5" cy="34.5" r="1.8" fill="#8FCE00"/>
+    <circle cx="31.5" cy="34.5" r="1.8" fill="#8FCE00"/>
+    
+    <!-- 24/7 Pill Tag -->
+    <rect x="23" y="13" width="22" height="11" rx="5.5" fill="url(#redGrad)"/>
+    <text x="34" y="21.5" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="900" text-anchor="middle" letter-spacing="0.2">24/7</text>
+  </g>
+
+  <!-- BRAND NAME & SLOGAN -->
+  <g transform="translate(68, 8)">
+    <!-- Main Title -->
+    <text x="0" y="28" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="25" letter-spacing="-0.5">
+      <tspan fill="#044B29">24/7 </tspan>
+      <tspan fill="#D93025">SERVICE</tspan>
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <rect x="0" y="35" width="6" height="6" rx="1.5" fill="#8FCE00"/>
+    <text x="10" y="41" fill="#4B5563" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700" letter-spacing="0.8">
+      SAB KUCH, EK JAGAH • 15-MIN
+    </text>
+  </g>
+</svg>
