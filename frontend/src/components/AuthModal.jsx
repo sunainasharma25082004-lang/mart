@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, User, Lock, Mail, Phone, ShieldCheck } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
+import { API_BASE } from '../config';
 import axios from 'axios';
 
 export default function AuthModal() {
@@ -23,11 +24,11 @@ export default function AuthModal() {
 
     try {
       if (mode === 'login') {
-        const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+        const res = await axios.post(`${API_BASE}/auth/login`, { email, password });
         loginUser(res.data, res.data.token);
         setIsAuthModalOpen(false);
       } else {
-        const res = await axios.post('http://localhost:5000/api/auth/register', { name, email, password, phone });
+        const res = await axios.post(`${API_BASE}/auth/register`, { name, email, password, phone });
         loginUser(res.data, res.data.token);
         setIsAuthModalOpen(false);
       }

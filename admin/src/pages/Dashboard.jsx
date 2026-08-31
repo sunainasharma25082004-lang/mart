@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DollarSign, ShoppingBag, Package, Users, ArrowUpRight, Plus, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { API_BASE } from '../config';
 import axios from 'axios';
 
 export default function Dashboard() {
@@ -15,7 +16,7 @@ export default function Dashboard() {
   const fetchDashboardData = async () => {
     try {
       const token = localStorage.getItem('service_admin_token') || localStorage.getItem('dadamart_admin_token');
-      const res = await axios.get('http://localhost:5000/api/orders', {
+      const res = await axios.get(`${API_BASE}/orders`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.data && res.data.length > 0) {

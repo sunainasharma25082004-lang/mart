@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Compass, CheckCircle2, Clock, Truck, Package, PhoneCall } from 'lucide-react';
+import { API_BASE } from '../config';
 import axios from 'axios';
 
 export default function TrackOrder() {
@@ -18,7 +19,7 @@ export default function TrackOrder() {
   const fetchOrderDetails = async (idToFetch) => {
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:5000/api/orders/${idToFetch}`);
+      const res = await axios.get(`${API_BASE}/orders/${idToFetch}`);
       if (res.data) {
         setOrderData(res.data);
       }

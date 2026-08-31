@@ -1,9 +1,9 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
-const ShopContext = createContext();
+import { API_BASE } from '../config';
 
-const API_BASE = 'http://localhost:5000/api';
+const ShopContext = createContext();
 
 // Initial default cart matching pic1.png (3 items, subtotal 629, total 629)
 const initialCartItems = [

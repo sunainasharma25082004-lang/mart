@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, CheckCircle, CreditCard, Banknote, ShieldCheck } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE } from '../config';
 import axios from 'axios';
 
 export default function CheckoutModal() {
@@ -58,7 +59,7 @@ export default function CheckoutModal() {
     };
 
     try {
-      const res = await axios.post('http://localhost:5000/api/orders', orderPayload);
+      const res = await axios.post(`${API_BASE}/orders`, orderPayload);
       setOrderSuccess(res.data);
     } catch (err) {
       // Mock order creation fallback

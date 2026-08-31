@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Trash2, Edit3, X, Image as ImageIcon } from 'lucide-react';
+import { API_BASE } from '../config';
 import axios from 'axios';
 
 export default function Products() {
@@ -21,7 +22,7 @@ export default function Products() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/products');
+      const res = await axios.get(`${API_BASE}/products`);
       if (res.data && res.data.length > 0) {
         setProducts(res.data);
       } else {
@@ -64,7 +65,7 @@ export default function Products() {
     };
 
     try {
-      await axios.post('http://localhost:5000/api/products', newProd, {
+      await axios.post(`${API_BASE}/products`, newProd, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchProducts();

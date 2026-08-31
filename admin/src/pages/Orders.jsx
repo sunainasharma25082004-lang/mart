@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingBag, Clock, CheckCircle2, Truck, RefreshCw } from 'lucide-react';
+import { API_BASE } from '../config';
 import axios from 'axios';
 
 export default function Orders() {
@@ -14,7 +15,7 @@ export default function Orders() {
     setLoading(true);
     try {
       const token = localStorage.getItem('service_admin_token') || localStorage.getItem('dadamart_admin_token');
-      const res = await axios.get('http://localhost:5000/api/orders', {
+      const res = await axios.get(`${API_BASE}/orders`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (res.data && res.data.length > 0) {
@@ -74,7 +75,7 @@ export default function Orders() {
     setOrders(prev => prev.map(o => o._id === orderId ? { ...o, orderStatus: newStatus } : o));
 
     try {
-      await axios.put(`http://localhost:5000/api/orders/${orderId}/status`, { orderStatus: newStatus }, {
+      await axios.put(`${API_BASE}/orders/${orderId}/status`, { orderStatus: newStatus }, {
         headers: { Authorization: `Bearer ${token}` }
       });
     } catch (err) {

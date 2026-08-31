@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShieldCheck, Mail, Lock } from 'lucide-react';
+import { API_BASE } from '../config';
 import axios from 'axios';
 
 export default function AdminLogin({ onLoginSuccess }) {
@@ -14,7 +15,7 @@ export default function AdminLogin({ onLoginSuccess }) {
     setLoading(true);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const res = await axios.post(`${API_BASE}/auth/login`, { email, password });
       if (res.data && (res.data.role === 'admin' || email === 'admin@247service.com' || email === 'admin@dadamart.com')) {
         onLoginSuccess(res.data, res.data.token);
       } else {
